@@ -16,7 +16,6 @@ const express_1 = __importDefault(require("express"));
 const ws_1 = __importDefault(require("ws"));
 const app_1 = require("firebase-admin/app");
 const firestore_1 = require("firebase-admin/firestore");
-const serviceAccount_json_1 = __importDefault(require("../serviceAccount.json"));
 const paladins_json_1 = __importDefault(require("../assets/paladins.json"));
 const marvel_rivals_json_1 = __importDefault(require("../assets/marvel-rivals.json"));
 initFirebase();
@@ -165,7 +164,20 @@ function formatDocumentData(rawDataString) {
     return resultToSend;
 }
 function initFirebase() {
-    const creds = serviceAccount_json_1.default;
+    const serviceAccount = {
+        "type": "service_account",
+        "project_id": process.env.PROJECT_ID,
+        "private_key_id": process.env.PRIVATE_KEY_ID,
+        "private_key": process.env.PRIVATE_KEY,
+        "client_email": process.env.CLIENT_EMAIL,
+        "client_id": process.env.CLIENT_ID,
+        "auth_uri": process.env.AUTH_URI,
+        "token_uri": process.env.TOKEN_URI,
+        "auth_provider_x509_cert_url": process.env.AUTH_PROVIDER_X509_CERT_URL,
+        "client_x509_cert_url": process.env.CLIENT_X509_CERT_URL,
+        "universe_domain": process.env.UNIVERSE_DOMAIN
+    };
+    const creds = serviceAccount;
     (0, app_1.initializeApp)({
         credential: (0, app_1.cert)(creds),
         databaseURL: 'swindys-request-queue.firebaseio.com'
