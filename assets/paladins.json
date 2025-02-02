@@ -1,0 +1,314 @@
+{
+    "items": [
+        {
+            "name": "Androxus",
+            "nicknames": [
+                "Andro"
+            ],
+            "voiceline": "androxus.ogg",
+            "image": "androxus.png"
+        },
+        {
+            "name": "Ash",
+            "nicknames": [],
+            "voiceline": "ash.ogg",
+            "image": "ash.png"
+        },
+        {
+            "name": "Atlas",
+            "nicknames": [],
+            "voiceline": "atlas.ogg",
+            "image": "atlas.png"
+        },
+        {
+            "name": "Barik",
+            "nicknames": [],
+            "voiceline": "barik.ogg",
+            "image": "barik.png"
+        },
+        {
+            "name": "Bomb King",
+            "nicknames": [
+                "BK"
+            ],
+            "voiceline": "bomb king.ogg",
+            "image": "bomb king.png"
+        },
+        {
+            "name": "Buck",
+            "nicknames": [],
+            "voiceline": "buck.ogg",
+            "image": "buck.png"
+        },
+        {
+            "name": "Cassie",
+            "nicknames": [],
+            "voiceline": "cassie.ogg",
+            "image": "cassie.png"
+        },
+        {
+            "name": "Corvus",
+            "nicknames": [],
+            "voiceline": "corvus.ogg",
+            "image": "corvus.png"
+        },
+        {
+            "name": "Dredge",
+            "nicknames": [],
+            "voiceline": "dredge.ogg",
+            "image": "dredge.png"
+        },
+        {
+            "name": "Drogoz",
+            "nicknames": [],
+            "voiceline": "drogoz.ogg",
+            "image": "drogoz.png"
+        },
+        {
+            "name": "Evie",
+            "nicknames": [],
+            "voiceline": "evie.ogg",
+            "image": "evie.png"
+        },
+        {
+            "name": "Fernando",
+            "nicknames": [
+                "Nando"
+            ],
+            "voiceline": "fernando.ogg",
+            "image": "fernando.png"
+        },
+        {
+            "name": "Furia",
+            "nicknames": [],
+            "voiceline": "furia.ogg",
+            "image": "furia.png"
+        },
+        {
+            "name": "Grohk",
+            "nicknames": [],
+            "voiceline": "grohk.ogg",
+            "image": "grohk.png"
+        },
+        {
+            "name": "Grover",
+            "nicknames": [],
+            "voiceline": "grover.ogg",
+            "image": "grover.png"
+        },
+        {
+            "name": "Imani",
+            "nicknames": [],
+            "voiceline": "imani.ogg",
+            "image": "imani.png"
+        },
+        {
+            "name": "Inara",
+            "nicknames": [],
+            "voiceline": "inara.ogg",
+            "image": "inara.png"
+        },
+        {
+            "name": "Io",
+            "nicknames": [
+                "Luna"
+            ],
+            "voiceline": "io.ogg",
+            "image": "io.png"
+        },
+        {
+            "name": "Jenos",
+            "nicknames": [],
+            "voiceline": "jenos.ogg",
+            "image": "jenos.png"
+        },
+        {
+            "name": "Khan",
+            "nicknames": [],
+            "voiceline": "khan.ogg",
+            "image": "khan.png"
+        },
+        {
+            "name": "Kinessa",
+            "nicknames": [
+                "Nessa"
+            ],
+            "voiceline": "kinessa.ogg",
+            "image": "kinessa.png"
+        },
+        {
+            "name": "Koga",
+            "nicknames": [],
+            "voiceline": "koga.ogg",
+            "image": "koga.png"
+        },
+        {
+            "name": "Lex",
+            "nicknames": [],
+            "voiceline": "lex.ogg",
+            "image": "lex.png"
+        },
+        {
+            "name": "Lian",
+            "nicknames": [],
+            "voiceline": "lian.ogg",
+            "image": "lian.png"
+        },
+        {
+            "name": "Maeve",
+            "nicknames": [],
+            "voiceline": "maeve.ogg",
+            "image": "maeve.png"
+        },
+        {
+            "name": "Makoa",
+            "nicknames": [],
+            "voiceline": "makoa.ogg",
+            "image": "makoa.png"
+        },
+        {
+            "name": "Mal'damba",
+            "nicknames": [
+                "Damba"
+            ],
+            "voiceline": "mal'damba.ogg",
+            "image": "mal'damba.png"
+        },
+        {
+            "name": "Moji",
+            "nicknames": [],
+            "voiceline": "moji.ogg",
+            "image": "moji.png"
+        },
+        {
+            "name": "Pip",
+            "nicknames": [],
+            "voiceline": "pip.ogg",
+            "image": "pip.png"
+        },
+        {
+            "name": "Raum",
+            "nicknames": [],
+            "voiceline": "raum.ogg",
+            "image": "raum.png"
+        },
+        {
+            "name": "Ruckus",
+            "nicknames": [],
+            "voiceline": "ruckus.ogg",
+            "image": "ruckus.png"
+        },
+        {
+            "name": "Seris",
+            "nicknames": [],
+            "voiceline": "seris.ogg",
+            "image": "seris.png"
+        },
+        {
+            "name": "Sha Lin",
+            "nicknames": [
+                "Sha"
+            ],
+            "voiceline": "sha lin.ogg",
+            "image": "sha lin.png"
+        },
+        {
+            "name": "Skye",
+            "nicknames": [],
+            "voiceline": "skye.ogg",
+            "image": "skye.png"
+        },
+        {
+            "name": "Strix",
+            "nicknames": [],
+            "voiceline": "strix.ogg",
+            "image": "strix.png"
+        },
+        {
+            "name": "Talus",
+            "nicknames": [],
+            "voiceline": "talus.ogg",
+            "image": "talus.png"
+        },
+        {
+            "name": "Terminus",
+            "nicknames": [
+                "Term",
+                "Termi"
+            ],
+            "voiceline": "terminus.ogg",
+            "image": "terminus.png"
+        },
+        {
+            "name": "Tiberius",
+            "nicknames": [
+                "Tib"
+            ],
+            "voiceline": "tiberius.ogg",
+            "image": "tiberius.png"
+        },
+        {
+            "name": "Torvald",
+            "nicknames": [
+                "Torv"
+            ],
+            "voiceline": "torvald.ogg",
+            "image": "torvald.png"
+        },
+        {
+            "name": "Tyra",
+            "nicknames": [],
+            "voiceline": "tyra.ogg",
+            "image": "tyra.png"
+        },
+        {
+            "name": "Viktor",
+            "nicknames": [
+                "Vik"
+            ],
+            "voiceline": "viktor.ogg",
+            "image": "viktor.png"
+        },
+        {
+            "name": "Vivian",
+            "nicknames": [
+                "Viv"
+            ],
+            "voiceline": "vivian.ogg",
+            "image": "vivian.png"
+        },
+        {
+            "name": "Vora",
+            "nicknames": [],
+            "voiceline": "vora.ogg",
+            "image": "vora.png"
+        },
+        {
+            "name": "Willo",
+            "nicknames": [],
+            "voiceline": "willo.ogg",
+            "image": "willo.png"
+        },
+        {
+            "name": "Ying",
+            "nicknames": [],
+            "voiceline": "ying.ogg",
+            "image": "ying.png"
+        },
+        {
+            "name": "Zhin",
+            "nicknames": [],
+            "voiceline": "zhin.ogg",
+            "image": "zhin.png"
+        },
+        {
+            "name": "Yagorath",
+            "nicknames": [
+                "yago",
+                "worm mama"
+            ],
+            "voiceline": "Yagorath_SP_Select.ogg",
+            "image": "Yagorath.png"
+        }
+    ]
+}
