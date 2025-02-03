@@ -37,9 +37,11 @@ if (db) {
         });
     });
     /* GET request for list of champions */
-    router.get('/champions', (req, res) => {
-        res.send('Got a GET request at /champions');
+    router.get('/queue-items/:queueType', (req, res) => {
+        const itemListToSend = itemListMap.get(req.params.queueType);
+        res.send(JSON.stringify(itemListToSend));
     });
+
     /* GET request for Champion Request Queue */
     router.get('/queue/all', (req, res) => {
         // quotesCollection.find().toArray().then(
@@ -50,6 +52,7 @@ if (db) {
         //     res.status(500).send(err);
         //   });
     });
+
     /* DELETE request for Champion Request Queue */
     router.delete('/queue/:queueType/all', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const deletedItemsReq = yield dbQueue.doc(req.params.queueType).set({});
@@ -60,6 +63,7 @@ if (db) {
         });
         res.status(200).send("Deleted all entries in queue");
     }));
+
     /* DELETE request for Champion Request Queue */
     router.delete('/queue/:queueType/last-played', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const currentQueue = yield dbQueue.doc(req.params.queueType).get();
@@ -78,6 +82,7 @@ if (db) {
         });
         res.status(200).send("Succesfully deleted champion from front of queue");
     }));
+
     router.post('/queue/:queueType/:championName', (req, res) => {
         let championName = req.params.championName;
         let matchedItem = matchQueueItem(championName, itemListMap.get(req.params.queueType));

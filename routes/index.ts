@@ -35,8 +35,9 @@ if (db) {
   });
 
   /* GET request for list of champions */
-  router.get('/champions', (req, res) => {
-    res.send('Got a GET request at /champions')
+  router.get('/queue-items/:queueType', (req, res) => {
+    const itemListToSend = itemListMap.get(req.params.queueType);
+    res.send(JSON.stringify(itemListToSend));
   });
 
   /* GET request for Champion Request Queue */
