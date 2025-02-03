@@ -1,12 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
 import fs from "fs";
-import WebSocket from "ws";
 import { initializeApp, cert, applicationDefault, ServiceAccount } from "firebase-admin/app";
 import { getFirestore, Timestamp, FieldValue, Filter } from "firebase-admin/firestore";
 import { firestore } from "firebase-admin";
 import paladins from '../assets/paladins.json';
 import marvelRivals from '../assets/marvel-rivals.json';
+import { wss } from "../app";
 
 initFirebase();
 
@@ -14,13 +14,6 @@ const db = getFirestore();
 const dbQueue = db.collection('queue');
 
 var router = express.Router();
-const env_wsPort = process.env.WS_PORT as string;
-const wsPort = Number.parseInt(env_wsPort, 10) || 3030;
-const sockjs_opts = {
-  prefix: '/echo'
-};
-
-const wss = new WebSocket.Server({ port: wsPort });
 
 const itemListMap: Map<string, any> = new Map();
 itemListMap.set('paladins', paladins.items);
@@ -93,7 +86,7 @@ if (db) {
 
   router.post('/queue/:queueType/:championName', (req, res) => {
     let championName = req.params.championName;
-    let matchedItem = matchQueueItem(championName, itemListMap.get(req.params.queueType)); 
+    let matchedItem = matchQueueItem(championName, itemListMap.get(req.params.queueType));
 
     if (matchedItem !== '') {
       const currentServerTime = new Date().toISOString();

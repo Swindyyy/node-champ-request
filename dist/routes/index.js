@@ -28,6 +28,9 @@ const sockjs_opts = {
     prefix: '/echo'
 };
 const wss = new ws_1.default.Server({ port: wsPort });
+wss.on('connection', (ws) => {
+    console.log('New client connected');
+});
 const itemListMap = new Map();
 itemListMap.set('paladins', paladins_json_1.default.items);
 itemListMap.set('marvel-rivals', marvel_rivals_json_1.default.items);
