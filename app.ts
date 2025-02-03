@@ -4,7 +4,7 @@ import cookieParser from 'cookie-parser';
 import path from 'path';
 import logger from 'morgan';
 import cors from 'cors';
-import WebSocket from "ws";
+import expressWs from "express-ws";
 
 var helmet = require('helmet');
 dotenv.config();
@@ -17,26 +17,22 @@ var usersRouter = require('./routes/users');
 const config_port: string = process.env.PORT as string;
 const PORT = Number.parseInt(config_port, 10) || 3000;
 const app = express();
-
-// start the Express server
-const httpServer = app.listen(PORT, () => {
-  console.log(`server started at http://localhost:${process.env.PORT || PORT}`);
-});
+export const wss = expressWs(app);
 
 
-const env_wsPort = process.env.WS_PORT as string;
-const wsPort = Number.parseInt(env_wsPort, 10) || 3030;
-const sockjs_opts = {
-  prefix: '/echo'
-};
+// const env_wsPort = process.env.WS_PORT as string;
+// const wsPort = Number.parseInt(env_wsPort, 10) || 3030;
+// const sockjs_opts = {
+//   prefix: '/echo'
+// };
 
-export const wss = new WebSocket.Server({ port: wsPort, noServer: true });
+// export const wss = new WebSocket.Server({ noServer: true, path: '/wss' });
 
-httpServer.on('upgrade', (req, socket, head) => {
-  wss.handleUpgrade(req, socket, head, (ws) => {
-    wss.emit('connection', ws, req);
-  })
-});
+// httpServer.on('upgrade', (req, socket, head) => {
+//   wss.handleUpgrade(req, socket, head, (ws) => {
+//     wss.emit('connection', ws, req);
+//   })
+// });
 
 
 // view engine setup
@@ -70,6 +66,11 @@ app.use(function (err: any, req: any, res: any) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// start the Express server
+const httpServer = app.listen(PORT, () => {
+  console.log(`server started at http://localhost:${process.env.PORT || PORT}`);
 });
 
 module.exports = app;

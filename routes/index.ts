@@ -7,6 +7,7 @@ import { firestore } from "firebase-admin";
 import paladins from '../assets/paladins.json';
 import marvelRivals from '../assets/marvel-rivals.json';
 import { wss } from "../app";
+import expressWs from 'express-ws';
 
 initFirebase();
 
@@ -53,7 +54,7 @@ if (db) {
   router.delete('/queue/:queueType/all', async (req, res) => {
     const deletedItemsReq = await dbQueue.doc(req.params.queueType).set({});
 
-    wss.clients.forEach(client => {
+    wss.getWss().clients.forEach(client => {
       client.send(JSON.stringify({
         command: 'wipeQueue'
       }));
@@ -75,7 +76,7 @@ if (db) {
 
     const deletedItemsReq = await dbQueue.doc(req.params.queueType).set({ ...dataToSet });
 
-    wss.clients.forEach(client => {
+    wss.getWss().clients.forEach(client => {
       client.send(JSON.stringify({
         command: 'removeTopFromQueue'
       }));
@@ -95,7 +96,7 @@ if (db) {
       }, { merge: true }).then(
         result => {
           console.log(JSON.stringify(result));
-          wss.clients.forEach(client => {
+          wss.getWss().clients.forEach(client => {
             client.send(JSON.stringify({
               command: 'addToQueue',
               data: {

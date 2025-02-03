@@ -13,24 +13,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const ws_1 = __importDefault(require("ws"));
 const app_1 = require("firebase-admin/app");
 const firestore_1 = require("firebase-admin/firestore");
 const paladins_json_1 = __importDefault(require("../assets/paladins.json"));
 const marvel_rivals_json_1 = __importDefault(require("../assets/marvel-rivals.json"));
+const app_2 = require("../app");
 initFirebase();
 const db = (0, firestore_1.getFirestore)();
 const dbQueue = db.collection('queue');
 var router = express_1.default.Router();
-const env_wsPort = process.env.WS_PORT;
-const wsPort = Number.parseInt(env_wsPort, 10) || 3030;
-const sockjs_opts = {
-    prefix: '/echo'
-};
-const wss = new ws_1.default.Server({ port: wsPort });
-wss.on('connection', (ws) => {
-    console.log('New client connected');
-});
 const itemListMap = new Map();
 itemListMap.set('paladins', paladins_json_1.default.items);
 itemListMap.set('marvel-rivals', marvel_rivals_json_1.default.items);
@@ -62,7 +53,7 @@ if (db) {
     /* DELETE request for Champion Request Queue */
     router.delete('/queue/:queueType/all', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const deletedItemsReq = yield dbQueue.doc(req.params.queueType).set({});
-        wss.clients.forEach(client => {
+        app_2.wss.getWss().clients.forEach(client => {
             client.send(JSON.stringify({
                 command: 'wipeQueue'
             }));
@@ -80,7 +71,7 @@ if (db) {
         const deletedItem = formattedQueue.shift();
         formattedQueue.forEach((item) => { dataToSet[item.createdAt] = item.queueItemDataName; });
         const deletedItemsReq = yield dbQueue.doc(req.params.queueType).set(Object.assign({}, dataToSet));
-        wss.clients.forEach(client => {
+        app_2.wss.getWss().clients.forEach(client => {
             client.send(JSON.stringify({
                 command: 'removeTopFromQueue'
             }));
@@ -96,7 +87,7 @@ if (db) {
                 [currentServerTime]: matchedItem
             }, { merge: true }).then(result => {
                 console.log(JSON.stringify(result));
-                wss.clients.forEach(client => {
+                app_2.wss.getWss().clients.forEach(client => {
                     client.send(JSON.stringify({
                         command: 'addToQueue',
                         data: {

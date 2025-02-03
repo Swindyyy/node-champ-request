@@ -3,12 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.wss = void 0;
 const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const path_1 = __importDefault(require("path"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
+const express_ws_1 = __importDefault(require("express-ws"));
 var helmet = require('helmet');
 dotenv_1.default.config();
 var indexRouter = require('./routes/index');
@@ -16,6 +18,18 @@ var usersRouter = require('./routes/users');
 const config_port = process.env.PORT;
 const PORT = Number.parseInt(config_port, 10) || 3000;
 const app = (0, express_1.default)();
+exports.wss = (0, express_ws_1.default)(app);
+// const env_wsPort = process.env.WS_PORT as string;
+// const wsPort = Number.parseInt(env_wsPort, 10) || 3030;
+// const sockjs_opts = {
+//   prefix: '/echo'
+// };
+// export const wss = new WebSocket.Server({ noServer: true, path: '/wss' });
+// httpServer.on('upgrade', (req, socket, head) => {
+//   wss.handleUpgrade(req, socket, head, (ws) => {
+//     wss.emit('connection', ws, req);
+//   })
+// });
 // view engine setup
 app.set('views', path_1.default.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -43,7 +57,7 @@ app.use(function (err, req, res) {
     res.render('error');
 });
 // start the Express server
-app.listen(PORT, '0.0.0.0', () => {
+const httpServer = app.listen(PORT, () => {
     console.log(`server started at http://localhost:${process.env.PORT || PORT}`);
 });
 module.exports = app;
