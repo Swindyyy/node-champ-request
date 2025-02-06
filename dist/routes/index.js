@@ -41,7 +41,6 @@ if (db) {
         const itemListToSend = itemListMap.get(req.params.queueType);
         res.send(JSON.stringify(itemListToSend));
     });
-
     /* GET request for Champion Request Queue */
     router.get('/queue/all', (req, res) => {
         // quotesCollection.find().toArray().then(
@@ -52,18 +51,19 @@ if (db) {
         //     res.status(500).send(err);
         //   });
     });
-
     /* DELETE request for Champion Request Queue */
     router.delete('/queue/:queueType/all', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const deletedItemsReq = yield dbQueue.doc(req.params.queueType).set({});
         app_2.wss.getWss().clients.forEach(client => {
             client.send(JSON.stringify({
-                command: 'wipeQueue'
+                command: 'wipeQueue',
+                data: {
+                    queueType: req.params.queueType
+                }
             }));
         });
         res.status(200).send("Deleted all entries in queue");
     }));
-
     /* DELETE request for Champion Request Queue */
     router.delete('/queue/:queueType/last-played', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const currentQueue = yield dbQueue.doc(req.params.queueType).get();
@@ -77,12 +77,14 @@ if (db) {
         const deletedItemsReq = yield dbQueue.doc(req.params.queueType).set(Object.assign({}, dataToSet));
         app_2.wss.getWss().clients.forEach(client => {
             client.send(JSON.stringify({
-                command: 'removeTopFromQueue'
+                command: 'removeLastPlayed',
+                data: {
+                    queueType: req.params.queueType
+                }
             }));
         });
         res.status(200).send("Succesfully deleted champion from front of queue");
     }));
-
     router.post('/queue/:queueType/:championName', (req, res) => {
         let championName = req.params.championName;
         let matchedItem = matchQueueItem(championName, itemListMap.get(req.params.queueType));
@@ -97,7 +99,10 @@ if (db) {
                         command: 'addToQueue',
                         data: {
                             queueType: req.params.queueType,
-                            queueItemDataName: matchedItem
+                            queueData: {
+                                createdAt: currentServerTime,
+                                queueItemDataName: matchedItem
+                            }
                         }
                     }));
                 });

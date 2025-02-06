@@ -147,3 +147,4 @@ __pycache__
 *~
 .env
 serviceAccount.json
+dist/

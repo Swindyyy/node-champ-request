@@ -5,6 +5,200 @@
             "nicknames": [
                 "Adam",
                 "Warlock"
+            ],
+            "voiceline": "adam warlock.ogg"
+        },
+        {
+            "name": "Black Panther",
+            "nicknames": [
+                "T'Challa"
+            ]
+        },
+        {
+            "name": "Black Widow",
+            "nicknames": [
+                "Nat",
+                "Natasha",
+                "Romanov"
+            ]
+        },
+        {
+            "name": "Captain America",
+            "nicknames": [
+                "Cap",
+                "Steve",
+                "Steve Rodgers",
+                "Rodgers"
+            ]
+        },
+        {
+            "name": "Cloak and Dagger",
+            "nicknames": [
+                "Cloak",
+                "Dagger"
+            ]
+        },
+        {
+            "name": "Doctor Strange",
+            "nicknames": [
+                "Strange",
+                "Stephen Strange"
+            ]
+        },
+        {
+            "name": "Groot",
+            "nicknames": [
+                "Groot"
+            ]
+        },
+        {
+            "name": "Black Panther",
+            "nicknames": [
+                "T'Challa"
+            ]
+        },
+        {
+            "name": "Hawkeye",
+            "nicknames": [
+                "Clint"
+            ]
+        },
+        {
+            "name": "Hela",
+            "nicknames": []
+        },
+        {
+            "name": "Hulk",
+            "nicknames": [
+                "Bruce Banner",
+                "Bruce",
+                "Banner"
+            ]
+        },
+        {
+            "name": "Invisible Woman",
+            "nicknames": [
+                "Sue Storm"
+            ]
+        },
+        {
+            "name": "Iron Fist",
+            "nicknames": []
+        },
+        {
+            "name": "Iron Man",
+            "nicknames": [
+                "Tony"
+            ]
+        },
+        {
+            "name": "Jeff the Land Shark",
+            "nicknames": [
+                "Jeff",
+                "Shark"
+            ]
+        },
+        {
+            "name": "Loki",
+            "nicknames": []
+        },
+        {
+            "name": "Luna Snow",
+            "nicknames": ["Luna"]
+        },
+        {
+            "name": "Magik",
+            "nicknames": []
+        },
+        {
+            "name": "Magneto",
+            "nicknames": []
+        },
+        {
+            "name": "Mantis",
+            "nicknames": []
+        },
+        {
+            "name": "Moon Knight",
+            "nicknames": []
+        },
+        {
+            "name": "Mr Fantastic",
+            "nicknames": [
+                "Reed"
+            ]
+        },
+        {
+            "name": "Namor",
+            "nicknames": []
+        },
+        {
+            "name": "Peni Parker",
+            "nicknames": [
+                "Peni"
+            ]
+        },
+        {
+            "name": "Psylocke",
+            "nicknames": []
+        },
+        {
+            "name": "The Punisher",
+            "nicknames": ["Punisher"]
+        },
+        {
+            "name": "Rocket Raccoon",
+            "nicknames": [
+                "Rocket"
+            ]
+        },
+        {
+            "name": "Scarlet Witch",
+            "nicknames": [
+                "Wanda"
+            ]
+        },
+        {
+            "name": "Spider Man",
+            "nicknames": [
+                "Spidey",
+                "Peter Parker"
+            ]
+        },
+        {
+            "name": "Squirell Girl",
+            "nicknames": []
+        },
+        {
+            "name": "Star Lord",
+            "nicknames": [
+                "Peter Quill",
+                "Quill"
+            ]
+        },
+        {
+            "name": "Storm",
+            "nicknames": []
+        },
+        {
+            "name": "Thor",
+            "nicknames": []
+        },
+        {
+            "name": "Venom",
+            "nicknames": []
+        },
+        {
+            "name": "Winter Soldier",
+            "nicknames": [
+                "Soldier",
+                "Bucky"
+            ]
+        },
+        {
+            "name": "Wolverine",
+            "nicknames": [
+                "Logan"
             ]
         }
     ]

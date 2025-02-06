@@ -57,7 +57,10 @@ if (db) {
 
     wss.getWss().clients.forEach(client => {
       client.send(JSON.stringify({
-        command: 'wipeQueue'
+        command: 'wipeQueue',
+        data: {
+          queueType: req.params.queueType
+        }
       }));
     });
     res.status(200).send("Deleted all entries in queue");
@@ -79,7 +82,10 @@ if (db) {
 
     wss.getWss().clients.forEach(client => {
       client.send(JSON.stringify({
-        command: 'removeTopFromQueue'
+        command: 'removeLastPlayed',
+        data: {
+          queueType: req.params.queueType
+        }
       }));
     })
 
@@ -102,7 +108,10 @@ if (db) {
               command: 'addToQueue',
               data: {
                 queueType: req.params.queueType,
-                queueItemDataName: matchedItem
+                queueData: {
+                  createdAt: currentServerTime,
+                  queueItemDataName: matchedItem
+                }
               }
             }));
           });

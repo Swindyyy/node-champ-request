@@ -5,7 +5,8 @@
   "main": "dist/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tsc",
+    "copy-static-files": "copyfiles -a -u 1 ./public/**/* ./dist/public/ ",
+    "build": "npx tsc && npm run copy-static-files",
     "start": "node dist/app.js",
     "dev": "nodemon src/app.ts",
     "render-install": "npm i && npm run build"
@@ -36,6 +37,7 @@
     "@types/node": "^22.13.0",
     "@types/ws": "^8.5.14",
     "concurrently": "^9.1.2",
+    "copyfiles": "^2.4.1",
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
